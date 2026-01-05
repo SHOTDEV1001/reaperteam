@@ -216,16 +216,86 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Portfolio item hover effects
-document.querySelectorAll('.portfolio-item').forEach(item => {
-    item.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px) scale(1.02)';
+// Copy Discord link functionality
+const copyDiscordBtn = document.getElementById('copyDiscord');
+const discordLink = document.getElementById('discordLink');
+
+if (copyDiscordBtn && discordLink) {
+    copyDiscordBtn.addEventListener('click', async function() {
+        const link = discordLink.textContent;
+        
+        try {
+            // Try to use the modern clipboard API first
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(link);
+            } else {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = link;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                textArea.style.top = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+            }
+            
+            // Show success feedback
+            showToast('تم نسخ رابط ديسكورد بنجاح!');
+            
+            // Change button appearance temporarily
+            copyDiscordBtn.classList.add('copied');
+            
+            // Reset button after 2 seconds
+            setTimeout(() => {
+                copyDiscordBtn.classList.remove('copied');
+            }, 2000);
+            
+        } catch (err) {
+            console.error('Failed to copy text: ', err);
+            showToast('فشل نسخ الرابط، يرجى النسخ يدوياً', 'error');
+        }
     });
+}
+
+// Toast notification function
+function showToast(message, type = 'success') {
+    // Remove existing toast if any
+    const existingToast = document.querySelector('.toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
     
-    item.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-    });
-});
+    // Create new toast
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    
+    // Add error styling if needed
+    if (type === 'error') {
+        toast.style.background = 'linear-gradient(135deg, #e74c3c, #c0392b)';
+    }
+    
+    // Add to page
+    document.body.appendChild(toast);
+    
+    // Show toast
+    setTimeout(() => {
+        toast.classList.add('show');
+    }, 100);
+    
+    // Hide and remove after 3 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => {
+            if (toast.parentNode) {
+                toast.parentNode.removeChild(toast);
+            }
+        }, 300);
+    }, 3000);
+}
 
 // Contact form handling
 const contactForm = document.querySelector('.contact-form');
