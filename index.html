@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reaper Team</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">Reaper Team</h1>
+                <ul class="nav-menu">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#portfolio">أعمالي</a></li>
+                    <li><a href="#contact">تواصل معي</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <section id="home" class="hero">
+        <div class="background-animation"></div>
+        <div class="hero-content">
+            <h2>مرحباً بك في Reaper Team</h2>
+            <p>أعرض هنا أفضل أعمالي والمنتجات التي أقدمها</p>
+            <a href="#portfolio" class="cta-button">استعرض الأعمال</a>
+        </div>
+    </section>
+
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">أعمالي ومنتجاتي</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-id="1">
+                    <div class="portfolio-image">
+                        <img src="https://i.postimg.cc/nrPrZjnf/FIB1.png" alt="FIB PACK">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>FIB PACK</h3>
+                        <p> FIB PACK – ملابس وكالة التحقيق الفيدرالية </p>
+                        <div class="portfolio-tags">
+                            <span>تصميم</span>
+                            <span>شوت</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-id="2">
+                    <div class="portfolio-image">
+                        <img src="https://i.postimg.cc/gjFdKVc2/SSE1.png" alt="SSE PACK">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>SSE PACK</h3>
+                        <p>وحدة SSE العسكرية</p>
+                        <div class="portfolio-tags">
+                            <span>تصميم</span>
+                            <span>شوت</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-id="3">
+                    <div class="portfolio-image">
+                        <img src="https://i.postimg.cc/VLCHXx2s/BL1.png" alt="BLOODS GANG">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Bloods Gang</h3>
+                        <p>حزمة ملابس حصرية لعصابة الـ BLOODS، صُممت لتعكس القوة</p>
+                        <div class="portfolio-tags">
+                            <span>تصميم</span>
+                            <span>شوت</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-id="4">
+                    <div class="portfolio-image">
+                        <img src="https://i.postimg.cc/cHG59XYs/V1.png" alt="VAGOS GANG">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Vagos Gang</h3>
+                        <p>حزمة ملابس حصرية لعصابة الـ Vagos، صُممت لتعكس القوة</p>
+                        <div class="portfolio-tags">
+                            <span>تصميم</span>
+                            <span>شوت</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</section>
+                <!-- <div class="portfolio-item" data-id="2">
+                    <div class="portfolio-image">
+                        <img src="images/SSEPACK/SSE1.png" alt="SSE PACK">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>SSE PACK</h3>
+                        <p>وحدة SSE العسكرية</p>
+                        <div class="portfolio-tags">
+                            <span>تصميم</span>
+                            <span>شوت</span>
+                        </div>
+                    </div>
+                </div> -->
+            
+
+
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">تواصل معي</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>للاستفسار والطلبات</h3>
+                    <p>يمكنك التواصل معي عبر أي من الوسائل التالية للاستفسار عن الأعمال أو طلب المنتجات</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <strong>ديسكورد:</strong>
+                            <span>https://discord.gg/EsFrasSEJx</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="portfolioModal" class="portfolio-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-body">
+                <div class="modal-images">
+                    <div class="main-image">
+                        <img id="modalMainImage" src="" alt="">
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <img class="thumbnail active" src="" alt="">
+                        <img class="thumbnail" src="" alt="">
+                        <img class="thumbnail" src="" alt="">
+                        <img class="thumbnail" src="" alt="">
+                        <img class="thumbnail" src="" alt="">
+                        <img class="thumbnail" src="" alt="">
+                        <img class="thumbnail" src="" alt="">
+                        <img class="thumbnail" src="" alt="">
+                        <img class="thumbnail" src="" alt="">
+                    </div>
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <div class="modal-tags" id="modalTags"></div>
+                    <div class="modal-description">
+                        <h3>الوصف التفصيلي</h3>
+                        <p id="modalDescription"></p>
+                    </div>
+                    <div class="modal-details">
+                        <h3>تفاصيل المشروع</h3>
+                        <ul id="modalDetails"></ul>
+                    </div>
+                    
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Reaper Team. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
