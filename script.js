@@ -216,77 +216,16 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Discord link functionality - open Discord instead of copy
-const copyDiscordBtn = document.getElementById('copyDiscord');
-const discordLink = document.getElementById('discordLink');
-
-if (copyDiscordBtn && discordLink) {
-    copyDiscordBtn.addEventListener('click', function() {
-        const link = discordLink.textContent;
-        
-        // Open Discord link in new tab
-        window.open(link, '_blank');
-        
-        // Show feedback
-        showToast('جاري فتح ديسكورد...');
-        
-        // Change button appearance temporarily
-        copyDiscordBtn.classList.add('copied');
-        
-        // Reset button after 2 seconds
-        setTimeout(() => {
-            copyDiscordBtn.classList.remove('copied');
-        }, 2000);
+// Portfolio item hover effects
+document.querySelectorAll('.portfolio-item').forEach(item => {
+    item.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px) scale(1.02)';
     });
     
-    // Also make the link clickable
-    discordLink.addEventListener('click', function() {
-        window.open(this.textContent, '_blank');
-        showToast('جاري فتح ديسكورد...');
+    item.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
     });
-    
-    // Add cursor pointer to link
-    discordLink.style.cursor = 'pointer';
-    discordLink.style.color = '#66eab7';
-    discordLink.style.textDecoration = 'underline';
-}
-
-// Toast notification function
-function showToast(message, type = 'success') {
-    // Remove existing toast if any
-    const existingToast = document.querySelector('.toast');
-    if (existingToast) {
-        existingToast.remove();
-    }
-    
-    // Create new toast
-    const toast = document.createElement('div');
-    toast.className = 'toast';
-    toast.textContent = message;
-    
-    // Add error styling if needed
-    if (type === 'error') {
-        toast.style.background = 'linear-gradient(135deg, #e74c3c, #c0392b)';
-    }
-    
-    // Add to page
-    document.body.appendChild(toast);
-    
-    // Show toast
-    setTimeout(() => {
-        toast.classList.add('show');
-    }, 100);
-    
-    // Hide and remove after 3 seconds
-    setTimeout(() => {
-        toast.classList.remove('show');
-        setTimeout(() => {
-            if (toast.parentNode) {
-                toast.parentNode.removeChild(toast);
-            }
-        }, 300);
-    }, 3000);
-}
+});
 
 // Contact form handling
 const contactForm = document.querySelector('.contact-form');
