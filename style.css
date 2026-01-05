@@ -335,7 +335,6 @@ section {
 }
 
 .contact-info p {
-    color: #3f3f3f;
     margin-bottom: 2rem;
     line-height: 1.6;
 }
@@ -348,17 +347,86 @@ section {
 
 .contact-item {
     display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-3px);
 }
 
 .contact-item strong {
-    color: #2c3e50;
-    font-weight: 600;
+    color: #4ba279;
+    font-size: 1.1rem;
+    min-width: 80px;
 }
 
 .contact-item span {
+    flex: 1;
     color: #666;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+.copy-btn {
+    background: linear-gradient(135deg, #66eab7, #4ba279);
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copy-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 3px 10px rgba(102, 234, 183, 0.3);
+}
+
+.copy-btn:active {
+    transform: scale(0.95);
+}
+
+.copy-btn.copied {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.copy-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.copy-btn:hover svg {
+    transform: scale(1.2);
+}
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    font-weight: 500;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
 }
 
 .contact-form {
