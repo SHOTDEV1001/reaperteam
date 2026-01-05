@@ -216,48 +216,39 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Copy Discord link functionality
+// Discord link functionality - open Discord instead of copy
 const copyDiscordBtn = document.getElementById('copyDiscord');
 const discordLink = document.getElementById('discordLink');
 
 if (copyDiscordBtn && discordLink) {
-    copyDiscordBtn.addEventListener('click', async function() {
+    copyDiscordBtn.addEventListener('click', function() {
         const link = discordLink.textContent;
         
-        try {
-            // Try to use the modern clipboard API first
-            if (navigator.clipboard && window.isSecureContext) {
-                await navigator.clipboard.writeText(link);
-            } else {
-                // Fallback for older browsers
-                const textArea = document.createElement('textarea');
-                textArea.value = link;
-                textArea.style.position = 'fixed';
-                textArea.style.left = '-999999px';
-                textArea.style.top = '-999999px';
-                document.body.appendChild(textArea);
-                textArea.focus();
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
-            }
-            
-            // Show success feedback
-            showToast('تم نسخ رابط ديسكورد بنجاح!');
-            
-            // Change button appearance temporarily
-            copyDiscordBtn.classList.add('copied');
-            
-            // Reset button after 2 seconds
-            setTimeout(() => {
-                copyDiscordBtn.classList.remove('copied');
-            }, 2000);
-            
-        } catch (err) {
-            console.error('Failed to copy text: ', err);
-            showToast('فشل نسخ الرابط، يرجى النسخ يدوياً', 'error');
-        }
+        // Open Discord link in new tab
+        window.open(link, '_blank');
+        
+        // Show feedback
+        showToast('جاري فتح ديسكورد...');
+        
+        // Change button appearance temporarily
+        copyDiscordBtn.classList.add('copied');
+        
+        // Reset button after 2 seconds
+        setTimeout(() => {
+            copyDiscordBtn.classList.remove('copied');
+        }, 2000);
     });
+    
+    // Also make the link clickable
+    discordLink.addEventListener('click', function() {
+        window.open(this.textContent, '_blank');
+        showToast('جاري فتح ديسكورد...');
+    });
+    
+    // Add cursor pointer to link
+    discordLink.style.cursor = 'pointer';
+    discordLink.style.color = '#66eab7';
+    discordLink.style.textDecoration = 'underline';
 }
 
 // Toast notification function
