@@ -316,6 +316,230 @@ section {
     font-weight: 500;
 }
 
+/* Resume Contact Styles */
+.resume-contact {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(102, 234, 183, 0.1);
+}
+
+.contact-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid linear-gradient(135deg, #66eab7, #4ba279);
+    background: linear-gradient(135deg, #66eab7, #4ba279);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.contact-header h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: #4ba279;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #f8fffe 0%, #f0fdf4 100%);
+    border-radius: 15px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    max-width: fit-content;
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    padding: 2px;
+    background: linear-gradient(135deg, #66eab7, #4ba279);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.contact-card:hover::before {
+    opacity: 1;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(102, 234, 183, 0.15);
+}
+
+.discord-card {
+    background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
+    color: white;
+}
+
+.discord-card .contact-icon svg {
+    color: white;
+}
+
+.discord-card .contact-info h5 {
+    color: white;
+}
+
+.discord-card .contact-link {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.discord-card .contact-link:hover {
+    color: white;
+}
+
+.discord-card .copy-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.discord-card .copy-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #66eab7, #4ba279);
+    color: white;
+    flex-shrink: 0;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: #2c3e50;
+}
+
+.contact-link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    transition: color 0.3s ease;
+}
+
+.discord-server {
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.discord-id {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    font-family: 'Courier New', monospace;
+}
+
+.contact-action {
+    flex-shrink: 0;
+}
+
+.copy-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(102, 234, 183, 0.1);
+    color: #66eab7;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+    background: rgba(102, 234, 183, 0.2);
+    transform: scale(1.1);
+}
+
+.copy-btn:active {
+    transform: scale(0.95);
+}
+
+/* Toast notification for copy */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: linear-gradient(135deg, #66eab7, #4ba279);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 500;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 3000;
+    pointer-events: none;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.discord-icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #66eab7 0%, #4ba279 100%);
+    border-radius: 15px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(52, 158, 107, 0.3);
+}
+
+.discord-icon-link:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(52, 158, 107, 0.4);
+    background: linear-gradient(135deg, #66eab7 0%, rgb(22, 51, 37) 100%);
+}
+
+.discord-icon-link svg {
+    transition: transform 0.3s ease;
+}
+
+.discord-icon-link:hover svg {
+    transform: rotate(10deg);
+}
+
 /* Contact Section */
 .contact {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
