@@ -72,6 +72,22 @@ const portfolioData = {
             "https://i.postimg.cc/3rBb1jw7/V3.png", //3
             "https://i.postimg.cc/hPtZ5JJ8/V4.png"  //4
         ]
+    },
+    5: {
+        title: "ملابس حصرية لمطعم الـ Snr.Buns",
+        tags: ["تصميم", "شوت"],
+        description: "نعلن عن توفر الزي الرسمي الجديد لمجموعة Snr. Buns. تصميم يجمع بين راحة الحركة في الشارع وفخامة المظهر داخل المطعم.",
+        details: [
+            "الخامة: نسيج عالي الجودة يتحمل أصعب ظروف العمل.",
+            "التصميم: متوافق تماماً مع جميع الشخصيات (Custom EUP).",
+            "التناسق: ألوان متناسقة مع شعار المحل تخليك مميز بين كل الموظفين في المدينة."
+        ],
+        images: [
+            "https://i.postimg.cc/Cxm99g4R/snrbuns1.png", //1
+            "https://i.postimg.cc/8ztxxSbr/snrbuns2.png", //2
+            "https://i.postimg.cc/q7qWT5bR/snrbuns3.png", //3
+            "https://i.postimg.cc/MK0CbRfk/snrbuns4.png"  //4
+        ]
     }
 };
 
@@ -227,46 +243,6 @@ document.querySelectorAll('.portfolio-item').forEach(item => {
     });
 });
 
-// Contact form handling
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(this);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const phone = formData.get('phone');
-        const message = formData.get('message');
-        
-        // Simple validation
-        if (!name || !email || !message) {
-            showNotification('يرجى ملء الحقول المطلوبة', 'error');
-            return;
-        }
-        
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            showNotification('يرجى إدخال بريد إلكتروني صحيح', 'error');
-            return;
-        }
-        
-        // Simulate form submission
-        const submitBtn = this.querySelector('.submit-btn');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'جاري الإرسال...';
-        submitBtn.disabled = true;
-        
-        setTimeout(() => {
-            showNotification('تم إرسال رسالتك بنجاح! سنتواصل معك قريباً', 'success');
-            this.reset();
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }, 2000);
-    });
-}
 
 // Notification system
 function showNotification(message, type = 'info') {
