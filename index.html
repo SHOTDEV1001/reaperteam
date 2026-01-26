@@ -1,197 +1,489 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reaper Team</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
-</head>
-<body>
+// Portfolio data with detailed information
+const portfolioData = {
+    1: {
+        title: "وكالة التحقيق الفيدرالية",
+        tags: ["تصميم", "شوت"],
+        description: "حزمة FIB PACK تقدم تشكيلة ملابس احترافية مخصصة لوكالة التحقيق الفيدرالية داخل سيرفرات FiveM. تم تصميم الملابس بدقة عالية لتناسب أجواء الرول بلاي الواقعية، مع الاهتمام بأدق التفاصيل من حيث القصّات، الشعارات، وجودة الخامات.",
+        details: [
+            "ملابس رسمية وميدانية لعناصر FIB",
+            "سترات تكتيكية وبدلات خاصة",
+            "تصاميم متوافقة مع QBCore فقط",
+            "أداء ممتاز بدون التأثير على السيرفر"
+        ],
+        images: [
+            "https://i.postimg.cc/nrPrZjnf/FIB1.png", //1
+            "https://i.postimg.cc/L5X5rBFF/FIB2.png", //2
+            "https://i.postimg.cc/j2F2KwtB/FIB3.png", //3
+            "https://i.postimg.cc/1XjXPnyS/FIB4.png", //4
+            "https://i.postimg.cc/xj41XmVF/FIB5.png", //5
+            "https://i.postimg.cc/BQPQHvqX/FIB6.png", //6
+            "https://i.postimg.cc/wTRTLB6m/FIB7.png", //7
+            "https://i.postimg.cc/J72zsXWh/FIB8.png", //8
+            "https://i.postimg.cc/HkQYvP8y/FIB9.png"  //9
+        ]
+    },
+    2: {
+        title: "وحدة SSE العسكرية",
+        tags: ["تصميم", "شوت"],
+        description: "ملابس ومعدات الـ SSE (اختصار لـ SECRET SERVICE) التي تظهر في الصور تعكس تجهيزات قوات المهام الخاصة التي تعمل في بيئات عالية الخطورة. هذا النوع من اللباس لا يهدف فقط للتمويه، بل هو \"نظام عمل\" متكامل مصمم للسرعة والحماية.",
+        details: [
+            "النمط والتمويه (Pattern)",
+            "الجزء العلوي (Combat Shirt & Headgear)",
+            "التجهيزات التكتيكية (Load Bearing)"
+        ],
+        images: [
+            "https://i.postimg.cc/gjFdKVc2/SSE1.png", //1
+            "https://i.postimg.cc/QCGsqQNV/SSE2.png", //2
+            "https://i.postimg.cc/L5KRVt4z/SSE3.png", //3
+            "https://i.postimg.cc/8cQDbRkM/SSE4.png", //4
+            "https://i.postimg.cc/MZVzpFtf/SSE5.png"  //5
+        ]
+    },
+    3: {
+        title: "ملابس حصرية لعصابة الـ BLOODS",
+        tags: ["تصميم", "شوت"],
+        description: "هذا الطقم صُمم ليكون \" هيبة تمشي على الأرض \". مخصص للسيرفرات اللي فيها \" حروب عصابات \" حقيقية. الفكرة هنا مو بس ألوان، الفكرة هي السيطرة البصرية. لما تدخل مكان بهذا الطقم، أنت ما تحتاج تتكلم.. ملابسك تقول \"أنا هنا، وأنا القائد\".",
+        details: [
+            "The Crown (القناع)",
+            "The Statement (الصدر)",
+            "The Masterpiece (الظهر)",
+            "The Flow (التناسق)"
+        ],
+        images: [
+            "https://i.postimg.cc/VLCHXx2s/BL1.png", //1
+            "https://i.postimg.cc/wjFPBhS2/BL2.png", //2
+            "https://i.postimg.cc/1Xx7dMN2/BL3.png", //3
+            "https://i.postimg.cc/Y9Ly8Tj5/BL4.png"  //4
+        ]
+    },
+    4: {
+        title: "ملابس حصرية لعصابة الـ Vagos",
+        tags: ["تصميم", "شوت"],
+        description: "هذا الطقم صُمم ليمثل سطوة اللون الأصفر في الشوارع. مخصص لسيرفرات الـ Roleplay التي تبحث عن تميز بصري وهوية واضحة للعصابات اللاتينية. التصميم لا يعتمد فقط على الألوان، بل على التفاصيل التي تعطي انطباعاً بالقوة والولاء للعصابة.",
+        details: [
+            "The Crown (القناع)",
+            "The Statement (الصدر)",
+            "The Masterpiece (الظهر)",
+            "The Flow (التناسق)"
+        ],
+        images: [
+            "https://i.postimg.cc/cHG59XYs/V1.png", //1
+            "https://i.postimg.cc/Wb1YHDD4/V2.png", //2
+            "https://i.postimg.cc/3rBb1jw7/V3.png", //3
+            "https://i.postimg.cc/hPtZ5JJ8/V4.png"  //4
+        ]
+    },
+    5: {
+        title: "ملابس حصرية لمطعم الـ Snr.Buns",
+        tags: ["تصميم", "شوت"],
+        description: "نعلن عن توفر الزي الرسمي الجديد لمجموعة Snr. Buns. تصميم يجمع بين راحة الحركة في الشارع وفخامة المظهر داخل المطعم.",
+        details: [
+            "الخامة: نسيج عالي الجودة يتحمل أصعب ظروف العمل.",
+            "التصميم: متوافق تماماً مع جميع الشخصيات (Custom EUP).",
+            "التناسق: ألوان متناسقة مع شعار المحل تخليك مميز بين كل الموظفين في المدينة."
+        ],
+        images: [
+            "https://i.postimg.cc/Cxm99g4R/snrbuns1.png", //1
+            "https://i.postimg.cc/8ztxxSbr/snrbuns2.png", //2
+            "https://i.postimg.cc/q7qWT5bR/snrbuns3.png", //3
+            "https://i.postimg.cc/MK0CbRfk/snrbuns4.png"  //4
+        ]
+    },
+    6: {
+        title:  "حصرية لعصابات الـ Gang pack",
+        tags: ["تصميم", "شوت"],
+        description: "أضف طابع الهيبة والقوة لسيرفرك مع أفخم حزمة ملابس عصابات متكاملة. تم تصميم هذه الحزمة بدقة عالية لتوفر هوية بصرية فريدة لكل عصابة، مع دمج الأسلوب الرياضي الحديث (Streetwear) بالعتاد التكتيكي الاحترافي.",
+        details: [
+            "سترة التدريب (Tracksuit Jacket): تصميم رياضي بلمسة عصرية.",
+            "بنطال متناسق (Matching Pants): يكمل مظهر الطقم.",
+            "درع تكتيكي (Custom Plate Carrier): يحمل شعار كل عصابة.",
+            "باندانا (Bandana Mask): تغطي الوجه بنقوش Paisley التقليدية.",
+            "حقيبة خصر (Crossbody Bag): إكسسوار إضافي يزيد من واقعية الشخصية."
+        ],
+        images: [
+            "https://i.postimg.cc/T1F70VJ8/Five_M_GTAProcess_2026_01_25_12_36_27_872.png", //1
+            "https://i.postimg.cc/LstcsbB3/Five_M_GTAProcess_2026_01_25_12_37_25_297.png", //2
+            "https://i.postimg.cc/sxN88ds2/Five_M_GTAProcess_2026_01_25_12_38_23_162.png", //3
+            "https://i.postimg.cc/bYBBqPff/Five_M_GTAProcess_2026_01_25_12_38_45_162.png", //4
+            "https://i.postimg.cc/Hxfv402T/Five_M_GTAProcess_2026_01_25_12_39_29_166.png", //5
+            "https://i.postimg.cc/XqdH2ZHX/Five_M_GTAProcess_2026_01_25_12_40_00_243.png"  //6
+        ]
+    }
+};
 
-    <header class="header">
-        <nav class="navbar">
-            <div class="nav-container">
-                <h1 class="logo">Reaper Team</h1>
-                <ul class="nav-menu">
-                    <li><a href="#home">الرئيسية</a></li>
-                    <li><a href="#portfolio">أعمالي</a></li>
-                    <li><a href="#contact">تواصل معي</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </nav>
-    </header>
+
+const modal = document.getElementById('portfolioModal');
+const modalClose = document.querySelector('.modal-close');
+const modalOverlay = document.querySelector('.modal-overlay');
 
 
-    <section id="home" class="hero">
-        <div class="background-animation"></div>
-        <div class="hero-content">
-            <h2>مرحباً بك في Reaper Team</h2>
-            <p>أعرض هنا أفضل أعمالي والمنتجات التي أقدمها</p>
-            <a href="#portfolio" class="cta-button">استعرض الأعمال</a>
-        </div>
-    </section>
-
-
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <h2 class="section-title">أعمالي ومنتجاتي</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item" data-id="1">
-                    <div class="portfolio-image">
-                        <img src="https://i.postimg.cc/nrPrZjnf/FIB1.png" alt="FIB PACK">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>FIB PACK</h3>
-                        <p> FIB PACK – ملابس وكالة التحقيق الفيدرالية </p>
-                        <div class="portfolio-tags">
-                            <span>تصميم</span>
-                            <span>شوت</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" data-id="2">
-                    <div class="portfolio-image">
-                        <img src="https://i.postimg.cc/gjFdKVc2/SSE1.png" alt="SSE PACK">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>SSE PACK</h3>
-                        <p>وحدة SSE العسكرية</p>
-                        <div class="portfolio-tags">
-                            <span>تصميم</span>
-                            <span>شوت</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" data-id="3">
-                    <div class="portfolio-image">
-                        <img src="https://i.postimg.cc/VLCHXx2s/BL1.png" alt="BLOODS GANG">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Bloods Gang</h3>
-                        <p>حزمة ملابس حصرية لعصابة الـ BLOODS، صُممت لتعكس القوة</p>
-                        <div class="portfolio-tags">
-                            <span>تصميم</span>
-                            <span>شوت</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" data-id="4">
-                    <div class="portfolio-image">
-                        <img src="https://i.postimg.cc/cHG59XYs/V1.png" alt="VAGOS GANG">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Vagos Gang</h3>
-                        <p>حزمة ملابس حصرية لعصابة الـ Vagos، صُممت لتعكس القوة</p>
-                        <div class="portfolio-tags">
-                            <span>تصميم</span>
-                            <span>شوت</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-id="5">
-                    <div class="portfolio-image">
-                        <img src="https://i.postimg.cc/Cxm99g4R/snrbuns1.png" alt="SSE PACK">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Snr. Buns</h3>
-                        <p>الهيبة مش بس سلاح.. الهيبة لبسة نظيفة وشغل احترافي!</p>
-                        <div class="portfolio-tags">
-                            <span>تصميم</span>
-                            <span>شوت</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-</section>
-                <!-- <div class="portfolio-item" data-id="2">
-                    <div class="portfolio-image">
-                        <img src="images/SSEPACK/SSE1.png" alt="SSE PACK">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>SSE PACK</h3>
-                        <p>وحدة SSE العسكرية</p>
-                        <div class="portfolio-tags">
-                            <span>تصميم</span>
-                            <span>شوت</span>
-                        </div>
-                    </div>
-                </div> -->
+document.querySelectorAll('.portfolio-item').forEach(item => {
+    item.addEventListener('click', function() {
+        const itemId = this.dataset.id;
+        const data = portfolioData[itemId];
+        
+        if (data) {
             
+            document.getElementById('modalTitle').textContent = data.title;
+            
+            
+            const modalTags = document.getElementById('modalTags');
+            modalTags.innerHTML = data.tags.map(tag => `<span>${tag}</span>`).join('');
+            
+            
+            document.getElementById('modalDescription').textContent = data.description;
+            
+            
+            const modalDetails = document.getElementById('modalDetails');
+            modalDetails.innerHTML = data.details.map(detail => `<li>${detail}</li>`).join('');
+            
+            
+            updateModalImages(data.images);
+            
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+});
+
+// Update modal images
+function updateModalImages(images) {
+    const mainImage = document.getElementById('modalMainImage');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    
+    // Set main image
+    mainImage.src = images[0];
+    
+    // Set thumbnails
+    thumbnails.forEach((thumb, index) => {
+        if (images[index]) {
+            thumb.src = images[index];
+            thumb.style.display = 'block';
+        } else {
+            thumb.style.display = 'none';
+        }
+    });
+    
+    // Set first thumbnail as active
+    thumbnails.forEach(thumb => thumb.classList.remove('active'));
+    if (thumbnails[0]) thumbnails[0].classList.add('active');
+}
+
+// Thumbnail click functionality
+document.querySelectorAll('.thumbnail').forEach(thumb => {
+    thumb.addEventListener('click', function() {
+        const mainImage = document.getElementById('modalMainImage');
+        mainImage.src = this.src;
+        
+        // Update active thumbnail
+        document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+// Close modal
+function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+modalClose.addEventListener('click', closeModal);
+modalOverlay.addEventListener('click', closeModal);
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+    }
+});
+
+// Modal action buttons
+document.querySelector('.btn-primary')?.addEventListener('click', function() {
+    const title = document.getElementById('modalTitle').textContent;
+    showNotification(`تم إضافة "${title}" إلى قائمة الطلبات!`, 'success');
+});
+
+document.querySelector('.btn-secondary')?.addEventListener('click', function() {
+    closeModal();
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+});
+
+// Mobile menu toggle
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    });
+});
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Header scroll effect
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('.header');
+    if (window.scrollY > 100) {
+        header.style.background = 'rgba(255, 255, 255, 0.98)';
+        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
+    } else {
+        header.style.background = 'rgba(255, 255, 255, 0.95)';
+        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+    }
+});
+
+// Portfolio item hover effects
+document.querySelectorAll('.portfolio-item').forEach(item => {
+    item.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px) scale(1.02)';
+    });
+    
+    item.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+    });
+});
 
 
+// Notification system
+function showNotification(message, type = 'info') {
+    // Remove existing notifications
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    
+    // Add styles
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: ${type === 'success' ? '#27ae60' : type === 'error' ? '#e74c3c' : '#3498db'};
+        color: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        font-weight: 500;
+        max-width: 300px;
+        animation: slideIn 0.3s ease;
+    `;
+    
+    // Add animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Add to DOM
+    document.body.appendChild(notification);
+    
+    // Remove after 5 seconds
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 5000);
+}
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">تواصل معي</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>للاستفسار والطلبات</h3>
-                    <p>يمكنك التواصل معي عبر أي من الوسائل التالية للاستفسار عن الأعمال أو طلب المنتجات</p>
-                    <div class="contact-details">
-                        <a href="https://discord.gg/EsFrasSEJx" target="_blank" class="discord-icon-link">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+// Intersection Observer for scroll animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
 
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
 
-    <div id="portfolioModal" class="portfolio-modal">
-        <div class="modal-overlay"></div>
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <div class="modal-body">
-                <div class="modal-images">
-                    <div class="main-image">
-                        <img id="modalMainImage" src="" alt="">
-                    </div>
-                    <div class="thumbnail-gallery">
-                        <img class="thumbnail active" src="" alt="">
-                        <img class="thumbnail" src="" alt="">
-                        <img class="thumbnail" src="" alt="">
-                        <img class="thumbnail" src="" alt="">
-                        <img class="thumbnail" src="" alt="">
-                        <img class="thumbnail" src="" alt="">
-                        <img class="thumbnail" src="" alt="">
-                        <img class="thumbnail" src="" alt="">
-                        <img class="thumbnail" src="" alt="">
-                    </div>
-                </div>
-                <div class="modal-info">
-                    <h2 id="modalTitle"></h2>
-                    <div class="modal-tags" id="modalTags"></div>
-                    <div class="modal-description">
-                        <h3>الوصف التفصيلي</h3>
-                        <p id="modalDescription"></p>
-                    </div>
-                    <div class="modal-details">
-                        <h3>تفاصيل المشروع</h3>
-                        <ul id="modalDetails"></ul>
-                    </div>
-                    
+// Observe portfolio items
+document.querySelectorAll('.portfolio-item').forEach(item => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(30px)';
+    item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(item);
+});
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Reaper Team. جميع الحقوق محفوظة.</p>
-        </div>
-    </footer>
+// Observe sections
+document.querySelectorAll('section').forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(30px)';
+    section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    observer.observe(section);
+});
 
-    <script src="script.js"></script>
-</body>
-</html>
+// Lazy loading for images (if you add real images later)
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img[data-src]');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+    
+    images.forEach(img => imageObserver.observe(img));
+});
+
+// Add typing effect to hero title (optional)
+function typeWriter(element, text, speed = 100) {
+    let i = 0;
+    element.textContent = '';
+    
+    function type() {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+    
+    type();
+}
+
+// Initialize typing effect when page loads
+window.addEventListener('load', () => {
+    const heroTitle = document.querySelector('.hero-content h2');
+    if (heroTitle) {
+        const originalText = heroTitle.textContent;
+        typeWriter(heroTitle, originalText, 80);
+    }
+});
+
+// Add parallax effect to hero section
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
+});
+
+// Copy contact information to clipboard
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        showToast('تم نسخ الرابط بنجاح!');
+    }).catch(() => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        showToast('تم نسخ الرابط بنجاح!');
+    });
+}
+
+// Toast notification function
+function showToast(message) {
+    // Remove existing toast
+    const existingToast = document.querySelector('.toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+    
+    // Create toast element
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    
+    // Add to DOM
+    document.body.appendChild(toast);
+    
+    // Show toast
+    setTimeout(() => {
+        toast.classList.add('show');
+    }, 100);
+    
+    // Hide and remove after 3 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => {
+            toast.remove();
+        }, 300);
+    }, 3000);
+}
+
+document.querySelectorAll('.contact-item').forEach(item => {
+    item.addEventListener('click', function() {
+        const text = this.querySelector('span').textContent;
+        navigator.clipboard.writeText(text).then(() => {
+            showNotification('تم نسخ النص: ' + text, 'success');
+        }).catch(() => {
+            showNotification('فشل نسخ النص', 'error');
+        });
+    });
+});
+
+// Add hover effect to contact items
+document.querySelectorAll('.contact-item').forEach(item => {
+    item.style.cursor = 'pointer';
+    item.style.transition = 'background-color 0.3s ease';
+    
+    item.addEventListener('mouseenter', function() {
+        this.style.backgroundColor = 'rgba(102, 126, 234, 0.1)';
+        this.style.padding = '10px';
+        this.style.borderRadius = '8px';
+    });
+    
+    item.addEventListener('mouseleave', function() {
+        this.style.backgroundColor = 'transparent';
+        this.style.padding = '0';
+        this.style.borderRadius = '0';
+    });
+});
