@@ -88,6 +88,26 @@ const portfolioData = {
             "https://i.postimg.cc/q7qWT5bR/snrbuns3.png", //3
             "https://i.postimg.cc/MK0CbRfk/snrbuns4.png"  //4
         ]
+    },
+    6: {
+        title:  "حصرية لعصابات الـ Gang pack",
+        tags: ["تصميم", "شوت"],
+        description: "أضف طابع الهيبة والقوة لسيرفرك مع أفخم حزمة ملابس عصابات متكاملة. تم تصميم هذه الحزمة بدقة عالية لتوفر هوية بصرية فريدة لكل عصابة، مع دمج الأسلوب الرياضي الحديث (Streetwear) بالعتاد التكتيكي الاحترافي.",
+        details: [
+            "سترة التدريب (Tracksuit Jacket): تصميم رياضي بلمسة عصرية.",
+            "بنطال متناسق (Matching Pants): يكمل مظهر الطقم.",
+            "درع تكتيكي (Custom Plate Carrier): يحمل شعار كل عصابة.",
+            "باندانا (Bandana Mask): تغطي الوجه بنقوش Paisley التقليدية.",
+            "حقيبة خصر (Crossbody Bag): إكسسوار إضافي يزيد من واقعية الشخصية."
+        ],
+        images: [
+            "https://i.postimg.cc/T1F70VJ8/Five_M_GTAProcess_2026_01_25_12_36_27_872.png", //1
+            "https://i.postimg.cc/LstcsbB3/Five_M_GTAProcess_2026_01_25_12_37_25_297.png", //2
+            "https://i.postimg.cc/sxN88ds2/Five_M_GTAProcess_2026_01_25_12_38_23_162.png", //3
+            "https://i.postimg.cc/bYBBqPff/Five_M_GTAProcess_2026_01_25_12_38_45_162.png", //4
+            "https://i.postimg.cc/Hxfv402T/Five_M_GTAProcess_2026_01_25_12_39_29_166.png", //5
+            "https://i.postimg.cc/XqdH2ZHX/Five_M_GTAProcess_2026_01_25_12_40_00_243.png"  //6
+        ]
     }
 };
 
